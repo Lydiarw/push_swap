@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 SRCS_DIR = ./
 OBJS_DIR = objs/
 
-SRCS_FILE = push_swap list_creation
+SRCS_FILE = push_swap parse helpers list_creation
 SRCS = $(addprefix $(SRCS_DIR),$(addsuffix .c,$(SRCS_FILE)))
 OBJS = $(SRCS:$(SRCS_DIR)%.c=$(OBJS_DIR)%.o)
 

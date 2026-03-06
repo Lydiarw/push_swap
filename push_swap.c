@@ -1,27 +1,56 @@
 #include "push_swap.h"
 
-void	error_message(int num)
+t_ops	*initialize_ops(void)
 {
-	if (num == 1)
-		ft_printf("%s\n", "ERROR: please input numbers only");
-	if (num == 2)
-		ft_printf("%s\n", "ERROR: duplicate values");
-	exit(1);
+	t_ops	*ops;
+
+	ops = (t_ops *)malloc(sizeof(t_ops));
+	if (!ops)
+		return (NULL);
+	ops->sa = "sa";
+	ops->sb = "sb";
+	ops->ss = "ss";
+	ops->pa = "pa";
+	ops->pb = "pb";
+	ops->ra = "ra";
+	ops->rb = "rb";
+	ops->rr = "rr";
+	ops->rra = "rra";
+	ops->rrb = "rrb";
+	ops->rrr = "rrr";
+	return (ops);
+}
+
+t_ps	*initialize_ps()
+{
+	t_ps *data;
+
+	data = (t_ps *)malloc(sizeof(t_ps));
+	data->a = NULL;
+	data->b = NULL;
+	data->res = NULL;
+	data->ops = initialize_ops();
+	return data;
 }
 
 int	main(int argc, char **argv)
 {
-	t_list *begin_list;
+	t_ps *data;
+	int *res;
+	int res_len;
 
+	data = initialize_ps();
+	res = NULL;
 	if (!argc || !argv || argc < 2)
 		return (1);
-	begin_list = NULL;
-	list_creation(argc, argv, &begin_list);
-	// t_list *current;
-	// current = begin_list;
-	// while (current)
-	// {
-	// 	printf("%d\n", *(int *)current->content);
-	// 	current = current->next;
-	// }
+	res_len = parse_args(argc, argv, &res);
+	list_creation(&data->a, res_len, res);
+
+	t_list *current;
+	current = data->a;
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
 }
