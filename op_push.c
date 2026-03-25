@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-/* Top of list_b will be PUSHED TO the top of list_a */
 void	push(t_list **list_a, t_list **list_b)
 {
 	t_list	*temp;

@@ -45,12 +45,17 @@ int	main(int argc, char **argv)
 		return (1);
 	res_len = parse_args(argc, argv, &res);
 	list_creation(&data->a, res_len, res);
-
-	t_list *current;
-	current = data->a;
-	while (current)
+	sort_stack(data, res_len);
+	while (data->res)
 	{
-		printf("%d\n", *(int *)current->content);
-		current = current->next;
+		printf("%s\n", *(char **)data->res);
+		data->res = data->res->next;
 	}
+	// t_list *current;
+	// current = data->a;
+	// while (current)
+	// {
+	// 	printf("%d\n", *(int *)current->content);
+	// 	current = current->next;
+	// }
 }

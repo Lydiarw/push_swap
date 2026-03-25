@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+/* counting the no. of numbers smaller than the MAIN NUMBER to get its index */
 int	get_index(int *array, int index, int arr_len)
 {
 	int	i;

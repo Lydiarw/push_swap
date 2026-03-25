@@ -1,48 +1,5 @@
 #include "push_swap.h"
 
-/* checks if str has unwanted chars */
-int	is_number_and_seperator(char *str, char sep)
-{
-	while (*str)
-	{
-		if (sep == ' ')
-		{
-			if (!((*str >= '0' && *str <= '9') || *str == sep))
-				return (-1);
-		}
-		else if (sep == '\0')
-		{
-			if (!(*str >= '0' && *str <= '9'))
-				return (-1);
-		}
-		str++;
-	}
-	return (0);
-}
-
-/* handles the result of ^ */
-void	validate_number_and_seperator(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	if (argc == 2)
-	{
-		if (is_number_and_seperator(argv[1], ' ') == -1)
-			error_message(1);
-	}
-	else if (argc > 2)
-	{
-		i = 1;
-		while (i < argc)
-		{
-			if (is_number_and_seperator(argv[i], '\0') == -1)
-				error_message(1);
-			i++;
-		}
-	}
-}
-
 /* convert raw input data into an array of strings */
 char	**get_array(int argc, char **argv)
 {
