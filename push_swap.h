@@ -39,6 +39,7 @@ t_ps		*initialize_ps(void);
 
 /* Helper functions */
 void		free_memory(char **array);
+void		free_data(t_ps *data);
 void		error_message(void);
 
 /* Parsing */
