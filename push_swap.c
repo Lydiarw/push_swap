@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:10 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 00:20:24 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 02:12:27 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ int	main(int argc, char **argv)
 		ft_printf("%s\n", *(char **)data->res);
 		data->res = data->res->next;
 	}
+	free_data(data);
 }
