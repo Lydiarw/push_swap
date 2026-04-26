@@ -71,7 +71,10 @@ int	main(int argc, char **argv)
 	res = NULL;
 	res_len = parse_args(argc, argv, &res);
 	if (res_len == 0)
+	{
+		free_data(data);
 		exit(0);
+	}
 	list_creation(&data->a, res_len, res);
 	sort_stack(data, res_len);
 	while (data->res)
