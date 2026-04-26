@@ -64,7 +64,8 @@ void		list_creation(t_list **begin_list, int arr_len, int *array);
 void		sort_three(t_ps *data);
 void		final_rotate(t_ps *data);
 void		sort_big(t_ps *data);
-void		sort_stack(t_ps *data, int len);
+int			is_sorted(t_list *node);
+void 		sort_stack(t_ps *data, int len);
 
 /* Sorting - utils 1 */
 t_list		*find_max(t_list *begin_list);
