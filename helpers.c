@@ -30,6 +30,18 @@ void	error_message(void)
 	exit(1);
 }
 
+void	print_res(t_ps *data)
+{
+	t_list	*current;
+
+	current = data->res;
+	while (current)
+	{
+		ft_printf("%s\n", (char *)current->content);
+		current = current->next;
+	}
+}
+
 void	free_data(t_ps *data)
 {
 	if (!data)
