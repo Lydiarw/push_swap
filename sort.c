@@ -61,9 +61,23 @@ void	sort_big(t_ps *data)
 	final_rotate(data);
 }
 
+int	is_sorted(t_list *node)
+{
+	t_list	*current;
+
+	current = node;
+	while (current && current->next)
+	{
+		if (*(int *)current->content > *(int *)current->next->content)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
 void	sort_stack(t_ps *data, int len)
 {
-	if (len == 1)
+	if (len == 1 || is_sorted(data->a))
 		return ;
 	if (len == 2)
 	{
