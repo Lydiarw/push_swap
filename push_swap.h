@@ -40,7 +40,8 @@ t_ps		*initialize_ps(void);
 /* Helper functions */
 void		free_memory(char **array);
 void		free_data(t_ps *data);
-void		error_message(void);
+void		print_res(t_ps *data);
+void	 	error_message(void);
 
 /* Parsing */
 char		**get_array(int argc, char **argv);
@@ -65,7 +66,7 @@ void		sort_three(t_ps *data);
 void		final_rotate(t_ps *data);
 void		sort_big(t_ps *data);
 int			is_sorted(t_list *node);
-void 		sort_stack(t_ps *data, int len);
+void		sort_stack(t_ps *data, int len);
 
 /* Sorting - utils 1 */
 t_list		*find_max(t_list *begin_list);

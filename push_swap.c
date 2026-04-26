@@ -76,11 +76,8 @@ int	main(int argc, char **argv)
 		exit(0);
 	}
 	list_creation(&data->a, res_len, res);
+	free(res);
 	sort_stack(data, res_len);
-	while (data->res)
-	{
-		ft_printf("%s\n", *(char **)data->res);
-		data->res = data->res->next;
-	}
+	print_res(data);
 	free_data(data);
 }
