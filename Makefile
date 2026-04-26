@@ -1,4 +1,4 @@
-NAME = pushswap
+NAME = push_swap
 LIBFT = libft/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
@@ -6,7 +6,7 @@ SRCS_DIR = ./
 OBJS_DIR = objs/
 
 SRCS_FILE = helpers list_creation op_push op_rev_rotate op_rotate op_swap \
-parse_utils parse push_swap sort_utils1 sort_utils2 sort
+parse_utils parse push_swap sort sort_utils1 sort_utils2 sort_utils3 sort_utils4
 SRCS = $(addprefix $(SRCS_DIR),$(addsuffix .c,$(SRCS_FILE)))
 OBJS = $(SRCS:$(SRCS_DIR)%.c=$(OBJS_DIR)%.o)
 
