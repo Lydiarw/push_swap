@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:33:46 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 00:16:28 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 01:33:28 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,8 @@ void	free_memory(char **array)
 	free(array);
 }
 
-void	error_message(int num)
+void	error_message(void)
 {
-	if (num == 1)
-		ft_printf("%s\n", "ERROR: please input numbers only");
-	else if (num == 2)
-		ft_printf("%s\n", "ERROR: duplicate values");
-	else if (num == 3)
-		ft_printf("%s\n", "ERROR: please in put more than one number");
+	write(2, "Error\n", 6);
 	exit(1);
 }

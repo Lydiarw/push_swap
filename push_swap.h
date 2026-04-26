@@ -39,7 +39,7 @@ t_ps		*initialize_ps(void);
 
 /* Helper functions */
 void		free_memory(char **array);
-void		error_message(int num);
+void		error_message(void);
 
 /* Parsing */
 char		**get_array(int argc, char **argv);
@@ -48,8 +48,11 @@ int			parse_args(int argc, char **argv, int **res);
 
 /* Parsing - utils */
 int			ft_arrlen(char **arr);
-int			is_number_and_seperator(char *str, char sep);
-void		validate_number_and_seperator(int argc, char **argv);
+// int			is_number_and_seperator(char *str, char sep);
+// void		validate_number_and_seperator(int argc, char **argv);
+int			is_valid_number(char *str);
+void		validate_input(char **input);
+int			safe_atoi(const char *str, int *out);
 int			check_duplicates(int *array, int arr_len);
 
 /* List Creation */

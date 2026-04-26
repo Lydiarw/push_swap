@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:34:58 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:34:58 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 01:57:11 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,47 +22,67 @@ int	ft_arrlen(char **arr)
 	return (i);
 }
 
-/* checks if str has unwanted chars */
-int	is_number_and_seperator(char *str, char sep)
+int is_valid_number(char *str)
 {
-	while (*str)
+	int	i;
+
+	if (!str || !*str)
+		return (-1);
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (-1);
+	while(str[i])
 	{
-		if (sep == ' ')
-		{
-			if (!((*str >= '0' && *str <= '9') || *str == sep))
-				return (-1);
-		}
-		else if (sep == '\0')
-		{
-			if (!(*str >= '0' && *str <= '9'))
-				return (-1);
-		}
-		str++;
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+		i++;
 	}
 	return (0);
 }
 
-/* handles the result of ^ */
-void	validate_number_and_seperator(int argc, char **argv)
+void	validate_input(char **input)
 {
 	int	i;
 
-	i = 1;
-	if (argc == 2)
+	if (!input || !input[0])
+		error_message();
+	i = 0;
+	while (input[i])
 	{
-		if (is_number_and_seperator(argv[1], ' ') == -1)
-			error_message(1);
+		if (is_valid_number(input[i]) == -1)
+			error_message();
+		i++;
 	}
-	else if (argc > 2)
+}
+
+int	safe_atoi(const char *str, int *out)
+{
+	int	i;
+	int	sign;
+	long	res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		i = 1;
-		while (i < argc)
-		{
-			if (is_number_and_seperator(argv[i], '\0') == -1)
-				error_message(1);
-			i++;
-		}
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		if (sign == 1 && res > INT_MAX)
+			return (-1);
+		if (sign == -1 && -res < INT_MIN)
+			return (-1);
+		i++;
+	}
+	*out = (int)(res * sign);
+	return (0);
 }
 
 /* checks for duplicates in int array */

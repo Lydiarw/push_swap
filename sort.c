@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:48 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:35:49 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 01:52:23 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,15 @@ void	sort_big(t_ps *data)
 void	sort_stack(t_ps *data, int len)
 {
 	if (len == 1)
-		error_message(3);
-	else if (len <= 3)
+		return ;
+	if (len == 2)
+	{
+		if (*(int *)data->a->content > *(int *)data->a->next->content)
+			sa(data);
+		return ;
+	}
+	if (len == 3)
 		sort_three(data);
-	else if (len > 3)
+	else
 		sort_big(data);
 }
