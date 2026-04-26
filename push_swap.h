@@ -31,7 +31,7 @@ typedef struct s_ps
 	t_ops	*ops;
 }			t_ps;
 
-void		assign_index(t_list **list);
+void		print_list(t_list *list);
 
 /* Initialization */
 t_ops		*initialize_ops(void);
@@ -42,31 +42,48 @@ void		free_memory(char **array);
 void		error_message(int num);
 
 /* Parsing */
+char		**get_array(int argc, char **argv);
+int			*to_int_array(char **array, int *length);
+int			parse_args(int argc, char **argv, int **res);
+
+/* Parsing - utils */
 int			ft_arrlen(char **arr);
 int			is_number_and_seperator(char *str, char sep);
 void		validate_number_and_seperator(int argc, char **argv);
 int			check_duplicates(int *array, int arr_len);
-char		**get_array(int argc, char **argv);
-int			*to_int_array(char **array, int *length);
-int			parse_args(int argc, char **argv, int **res);
 
 /* List Creation */
 int			get_index(int *array, int index, int arr_len);
 void		list_creation(t_list **begin_list, int arr_len, int *array);
 
 /* Sorting */
-t_list		*find_max(t_list *begin_list);
-t_list		*find_target_in_b(t_list *begin_list, int value);
-int			rotations_to_top(t_list *begin_list, t_list *node);
-int			calculate_cost(t_ps *data, t_list *node);
-t_list		*find_cheapest(t_ps *data);
-int			same_direction(int a, int b);
-int			ft_max(int a, int b);
 void		sort_three(t_ps *data);
+void		final_rotate(t_ps *data);
+void		sort_big(t_ps *data);
+void		sort_stack(t_ps *data, int len);
+
+/* Sorting - utils 1 */
+t_list		*find_max(t_list *begin_list);
+t_list		*find_min(t_list *begin_list);
+int			ft_max(int a, int b);
+int			same_direction(int a, int b);
+
+/* Sorting - utils 2 */
+int			rotations_to_top(t_list *begin_list, t_list *node);
+t_list		*find_target_in_b(t_list *begin_list, int value);
+t_list		*find_target_in_a(t_list *begin_list, int value);
+int			calculate_cost_from_a(t_ps *data, t_list *node);
+int			calculate_cost_from_b(t_ps *data, t_list *node);
+
+/* Sorting - utils 3 */
+t_list		*find_cheapest_in_a(t_ps *data);
+t_list		*find_cheapest_in_b(t_ps *data);
+
+/* Sorting - utils 4 */
 void		handle_rotate(t_ps *data, int a, int b);
 void		handle_rev_rotate(t_ps *data, int a, int b);
-void		move_to_top(t_ps *data, t_list *node);
-void		sort_stack(t_ps *data, int len);
+void		move_to_top_from_a(t_ps *data, t_list *node);
+void		move_to_top_from_b(t_ps *data, t_list *node);
 
 /* Operations */
 void		swap(t_list **list);

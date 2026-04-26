@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/01 12:35:10 by si-wong           #+#    #+#             */
+/*   Updated: 2026/04/01 12:35:11 by si-wong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_ops	*initialize_ops(void)
@@ -21,16 +33,30 @@ t_ops	*initialize_ops(void)
 	return (ops);
 }
 
-t_ps	*initialize_ps()
+t_ps	*initialize_ps(void)
 {
-	t_ps *data;
+	t_ps	*data;
 
 	data = (t_ps *)malloc(sizeof(t_ps));
 	data->a = NULL;
 	data->b = NULL;
 	data->res = NULL;
 	data->ops = initialize_ops();
-	return data;
+	return (data);
+}
+
+void	print_list(t_list *list)
+{
+	t_list	*current;
+
+	current = list;
+	printf("===========START===========\n");
+	while (current)
+	{
+		printf("list:   %d\n", *(int *)current->content);
+		current = current->next;
+	}
+	printf("===========END===========\n");
 }
 
 int	main(int argc, char **argv)
@@ -46,16 +72,10 @@ int	main(int argc, char **argv)
 	res_len = parse_args(argc, argv, &res);
 	list_creation(&data->a, res_len, res);
 	sort_stack(data, res_len);
+	print_list(data->a);
 	while (data->res)
 	{
-		printf("%s\n", *(char **)data->res);
+		ft_printf("%s\n", *(char **)data->res);
 		data->res = data->res->next;
 	}
-	// t_list *current;
-	// current = data->a;
-	// while (current)
-	// {
-	// 	printf("%d\n", *(int *)current->content);
-	// 	current = current->next;
-	// }
 }

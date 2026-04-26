@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/01 12:35:02 by si-wong           #+#    #+#             */
+/*   Updated: 2026/04/01 12:37:39 by si-wong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /* convert raw input data into an array of strings */
@@ -37,12 +49,6 @@ int	*to_int_array(char **array, int *length)
 	return (res);
 }
 
-// 1. validate the arguments
-// 2. convert to an int array (get_array)
-// 3. check duplicates
-// 4. convert string array to int array
-// 5. free input array
-// 6. return array length
 int	parse_args(int argc, char **argv, int **res)
 {
 	char **input_array;

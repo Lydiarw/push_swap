@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/01 12:35:21 by si-wong           #+#    #+#             */
+/*   Updated: 2026/04/01 12:35:21 by si-wong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*find_max(t_list *begin_list)
@@ -21,84 +33,37 @@ t_list	*find_max(t_list *begin_list)
 	return (max);
 }
 
-t_list	*find_target_in_b(t_list *begin_list, int value)
+t_list	*find_min(t_list *begin_list)
 {
 	t_list	*curr;
-	t_list	*best;
+	t_list	*min;
+	int		smallest;
 
 	curr = begin_list;
-	best = NULL;
+	smallest = INT_MAX;
 	while (curr)
 	{
-		if (*(int *)curr->content < value)
+		if (*(int *)curr->content < smallest)
 		{
-			if (!best || *(int *)curr->content > *(int *)best->content)
-				best = curr;
+			smallest = *(int *)curr->content;
+			min = curr;
 		}
 		curr = curr->next;
 	}
-	if (!best)
-		best = find_max(begin_list);
-	return (best);
+	return (min);
 }
 
-/* find index */
-/* that NODE which u use to compare to the rest of the list */
-int	rotations_to_top(t_list *begin_list, t_list *node)
+int	ft_max(int a, int b)
 {
-	t_list	*curr;
-	int		size;
-	int		index;
-
-	curr = begin_list;
-	size = ft_lstsize(curr);
-	index = 0;
-	while (curr)
-	{
-		if (curr == node)
-			break ;
-		index++;
-		curr = curr->next;
-	}
-	if (index <= size / 2)
-		return (index); /* pos: ra/rb */
+	if (a > b)
+		return (a);
 	else
-		return (index - size); /* neg: rra/rrb */
+		return (b);
 }
 
-int	calculate_cost(t_ps *data, t_list *node)
+int	same_direction(int a, int b)
 {
-	int		cost_a;
-	int		cost_b;
-	t_list	*target;
-
-	cost_a = rotations_to_top(data->a, node);
-	target = find_target_in_b(data->b, *(int *)node->content);
-	cost_b = rotations_to_top(data->b, target);
-	if (same_direction(cost_a, cost_b) == 1)
-		return (ft_max(ABS(cost_a), ABS(cost_b)) + 1);
-	else
-		return (ABS(cost_a) + ABS(cost_b) + 1);
-}
-
-t_list	*find_cheapest(t_ps *data)
-{
-	t_list *curr;
-	t_list *best;
-	int cost;
-	int best_cost;
-
-	curr = data->a;
-	best_cost = INT_MAX;
-	while (curr)
-	{
-		cost = calculate_cost(data, curr);
-		if (cost < best_cost)
-		{
-			best_cost = cost;
-			best = curr;
-		}
-		curr = curr->next;
-	}
-	return (best);
+	if ((a > 0 && b > 0) || (a < 0 && b < 0))
+		return (1);
+	return (0);
 }

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/01 12:34:40 by si-wong           #+#    #+#             */
+/*   Updated: 2026/04/01 12:34:41 by si-wong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_list **list_a, t_list **list_b)
 {
 	t_list	*temp;
 
-	if (!list_a || !*list_a || !list_b || !*list_b)
+	if (!list_a || !list_b || !*list_b)
 		return ;
 	temp = *list_b;
 	*list_b = temp->next;
