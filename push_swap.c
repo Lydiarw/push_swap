@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:10 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:35:11 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 00:20:24 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,15 @@ int	main(int argc, char **argv)
 	int *res;
 	int res_len;
 
-	data = initialize_ps();
-	res = NULL;
 	if (!argc || !argv || argc < 2)
 		return (1);
+	data = initialize_ps();
+	res = NULL;
 	res_len = parse_args(argc, argv, &res);
+	if (res_len == 0)
+		exit(0);
 	list_creation(&data->a, res_len, res);
 	sort_stack(data, res_len);
-	print_list(data->a);
 	while (data->res)
 	{
 		ft_printf("%s\n", *(char **)data->res);
