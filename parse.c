@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:02 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 00:18:28 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 01:48:32 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,18 @@ int	*to_int_array(char **array, int *length)
 
 	len = ft_arrlen(array);
 	res = (int *)malloc(len * sizeof(int));
+	if (!res)
+		error_message();
 	i = -1;
 	while (array[++i])
-		res[i] = ft_atoi(array[i]);
+	{
+		if (safe_atoi(array[i], &res[i]) == -1)
+		{
+			free(res);
+			free_memory(array);
+			error_message();
+		}
+	}
 	*length = len;
 	return (res);
 }
@@ -55,11 +64,15 @@ int	parse_args(int argc, char **argv, int **res)
 	int arr_len;
 
 	arr_len = 0;
-	validate_number_and_seperator(argc, argv);
 	input_array = get_array(argc, argv);
+	validate_input(input_array);
 	*res = to_int_array(input_array, &arr_len);
 	if (check_duplicates(*res, arr_len) == -1)
-		error_message(2);
+	{
+		free(*res);
+		free_memory(input_array);
+		error_message();
+	}
 	free_memory(input_array);
 	return (arr_len);
 }

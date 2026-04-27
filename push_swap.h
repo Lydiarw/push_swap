@@ -39,7 +39,9 @@ t_ps		*initialize_ps(void);
 
 /* Helper functions */
 void		free_memory(char **array);
-void		error_message(int num);
+void		free_data(t_ps *data);
+void		print_res(t_ps *data);
+void	 	error_message(void);
 
 /* Parsing */
 char		**get_array(int argc, char **argv);
@@ -48,8 +50,11 @@ int			parse_args(int argc, char **argv, int **res);
 
 /* Parsing - utils */
 int			ft_arrlen(char **arr);
-int			is_number_and_seperator(char *str, char sep);
-void		validate_number_and_seperator(int argc, char **argv);
+// int			is_number_and_seperator(char *str, char sep);
+// void		validate_number_and_seperator(int argc, char **argv);
+int			is_valid_number(char *str);
+void		validate_input(char **input);
+int			safe_atoi(const char *str, int *out);
 int			check_duplicates(int *array, int arr_len);
 
 /* List Creation */
@@ -60,6 +65,7 @@ void		list_creation(t_list **begin_list, int arr_len, int *array);
 void		sort_three(t_ps *data);
 void		final_rotate(t_ps *data);
 void		sort_big(t_ps *data);
+int			is_sorted(t_list *node);
 void		sort_stack(t_ps *data, int len);
 
 /* Sorting - utils 1 */
