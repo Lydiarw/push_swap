@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:33:56 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:33:57 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:13:22 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	get_index(int *array, int index, int arr_len)
 
 void	list_creation(t_list **begin_list, int arr_len, int *array)
 {
-	int *num;
-	int i;
+	int	*num;
+	int	i;
 
 	i = -1;
 	while (++i < arr_len)

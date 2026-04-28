@@ -2,6 +2,8 @@ NAME = push_swap
 LIBFT = libft/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+MAKEFLAGS += --no-print-directory
+
 SRCS_DIR = ./
 OBJS_DIR = objs/
 

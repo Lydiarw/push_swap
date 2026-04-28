@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:10 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 02:12:27 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:34:24 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	print_list(t_list *list)
 
 int	main(int argc, char **argv)
 {
-	t_ps *data;
-	int *res;
-	int res_len;
+	t_ps	*data;
+	int		*res;
+	int		res_len;
 
 	if (!argc || !argv || argc < 2)
 		return (1);

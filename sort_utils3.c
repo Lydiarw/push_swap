@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:31 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:35:32 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:33:42 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ t_list	*find_cheapest_in_a(t_ps *data)
 
 t_list	*find_cheapest_in_b(t_ps *data)
 {
-	t_list *curr;
-	t_list *best;
-	int cost;
-	int best_cost;
+	t_list	*curr;
+	t_list	*best;
+	int		cost;
+	int		best_cost;
 
 	curr = data->b;
 	best_cost = INT_MAX;

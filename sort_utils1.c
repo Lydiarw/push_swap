@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:21 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:35:21 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/28 10:43:41 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,11 @@ int	same_direction(int a, int b)
 	if ((a > 0 && b > 0) || (a < 0 && b < 0))
 		return (1);
 	return (0);
+}
+
+int	absolute(int value)
+{
+	if (value < 0)
+		value *= -1;
+	return (value);
 }

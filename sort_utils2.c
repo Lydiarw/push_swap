@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:25 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/01 12:35:27 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/28 10:41:32 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int	rotations_to_top(t_list *begin_list, t_list *node)
 		curr = curr->next;
 	}
 	if (index <= size / 2)
-		return (index); /* pos: ra/rb */
+		return (index);
 	else
-		return (index - size); /* neg: rra/rrb */
+		return (index - size);
 }
+/* pos: ra/rb ------- neg: rra/rrb */
 
 t_list	*find_target_in_b(t_list *begin_list, int value)
 {
@@ -88,22 +89,22 @@ int	calculate_cost_from_a(t_ps *data, t_list *node)
 	target = find_target_in_b(data->b, *(int *)node->content);
 	cost_b = rotations_to_top(data->b, target);
 	if (same_direction(cost_a, cost_b) == 1)
-		return (ft_max(ABS(cost_a), ABS(cost_b)) + 1);
+		return (ft_max(absolute(cost_a), absolute(cost_b)) + 1);
 	else
-		return (ABS(cost_a) + ABS(cost_b) + 1);
+		return (absolute(cost_a) + absolute(cost_b) + 1);
 }
 
 int	calculate_cost_from_b(t_ps *data, t_list *node)
 {
-	int cost_a;
-	int cost_b;
-	t_list *target;
+	int		cost_a;
+	int		cost_b;
+	t_list	*target;
 
 	cost_b = rotations_to_top(data->b, node);
 	target = find_target_in_a(data->a, *(int *)node->content);
 	cost_a = rotations_to_top(data->a, target);
 	if (same_direction(cost_a, cost_b) == 1)
-		return (ft_max(ABS(cost_a), ABS(cost_b)) + 1);
+		return (ft_max(absolute(cost_a), absolute(cost_b)) + 1);
 	else
-		return (ABS(cost_a) + ABS(cost_b) + 1);
+		return (absolute(cost_a) + absolute(cost_b) + 1);
 }

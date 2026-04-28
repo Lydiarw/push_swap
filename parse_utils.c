@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:34:58 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 01:57:11 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:47:23 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_arrlen(char **arr)
 	return (i);
 }
 
-int is_valid_number(char *str)
+int	is_valid_number(char *str)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int is_valid_number(char *str)
 		i++;
 	if (!str[i])
 		return (-1);
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (-1);
@@ -59,8 +59,8 @@ void	validate_input(char **input)
 
 int	safe_atoi(const char *str, int *out)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	res;
 
 	i = 0;
@@ -77,7 +77,7 @@ int	safe_atoi(const char *str, int *out)
 		res = res * 10 + (str[i] - '0');
 		if (sign == 1 && res > INT_MAX)
 			return (-1);
-		if (sign == -1 && -res < INT_MIN)
+		if (sign == -1 && -(res) < INT_MIN)
 			return (-1);
 		i++;
 	}
@@ -89,8 +89,8 @@ int	safe_atoi(const char *str, int *out)
 /* uses arr_len as a stopper (no NULL terminator in int arrays) */
 int	check_duplicates(int *array, int arr_len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < arr_len)

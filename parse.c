@@ -6,7 +6,7 @@
 /*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 12:35:02 by si-wong           #+#    #+#             */
-/*   Updated: 2026/04/27 01:48:32 by si-wong          ###   ########.fr       */
+/*   Updated: 2026/04/27 14:24:54 by si-wong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	*to_int_array(char **array, int *length)
 
 int	parse_args(int argc, char **argv, int **res)
 {
-	char **input_array;
-	int arr_len;
+	char	**input_array;
+	int		arr_len;
 
 	arr_len = 0;
 	input_array = get_array(argc, argv);

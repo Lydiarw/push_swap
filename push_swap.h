@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: si-wong <si-wong@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/27 14:29:50 by si-wong           #+#    #+#             */
+/*   Updated: 2026/04/28 10:43:38 by si-wong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -5,8 +17,6 @@
 # include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
-
-# define ABS(value) ((value) < 0 ? -(value) : (value))
 
 typedef struct s_ops
 {
@@ -41,7 +51,7 @@ t_ps		*initialize_ps(void);
 void		free_memory(char **array);
 void		free_data(t_ps *data);
 void		print_res(t_ps *data);
-void	 	error_message(void);
+void		error_message(void);
 
 /* Parsing */
 char		**get_array(int argc, char **argv);
@@ -50,8 +60,6 @@ int			parse_args(int argc, char **argv, int **res);
 
 /* Parsing - utils */
 int			ft_arrlen(char **arr);
-// int			is_number_and_seperator(char *str, char sep);
-// void		validate_number_and_seperator(int argc, char **argv);
 int			is_valid_number(char *str);
 void		validate_input(char **input);
 int			safe_atoi(const char *str, int *out);
@@ -73,9 +81,10 @@ t_list		*find_max(t_list *begin_list);
 t_list		*find_min(t_list *begin_list);
 int			ft_max(int a, int b);
 int			same_direction(int a, int b);
+int			absolute(int value);
 
 /* Sorting - utils 2 */
-int			rotations_to_top(t_list *begin_list, t_list *node);
+int 		rotations_to_top(t_list *begin_list, t_list *node);
 t_list		*find_target_in_b(t_list *begin_list, int value);
 t_list		*find_target_in_a(t_list *begin_list, int value);
 int			calculate_cost_from_a(t_ps *data, t_list *node);
